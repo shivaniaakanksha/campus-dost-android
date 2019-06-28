@@ -47,8 +47,6 @@ Animation<double> _iconAnimation;
           size: _iconAnimation.value * 200,
           ),
       )
-    
- 
     );
   }
 }

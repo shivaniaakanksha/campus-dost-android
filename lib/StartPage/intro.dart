@@ -1,3 +1,4 @@
+import 'package:campus_dost/HomePage/homePage.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatefulWidget {
@@ -70,7 +71,13 @@ class _IntroPageState extends State<IntroPage> {
                         ),
                       ),
                       color: Color(0xff4285f4),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, 
+      MaterialPageRoute(
+        builder: (context) => HomePage()
+      ),
+      );
+                      },
                     ),
                   )
                 
