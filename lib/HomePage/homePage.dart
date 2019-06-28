@@ -1,6 +1,8 @@
-import 'package:campus_dost/HomePage/contacts.dart';
-import 'package:campus_dost/HomePage/more.dart';
-import 'package:campus_dost/HomePage/notices.dart';
+
+import 'package:campus_dost/HomePage/Contacts/contacts.dart';
+import 'package:campus_dost/HomePage/More/more.dart';
+import 'package:campus_dost/HomePage/Notices/notices.dart';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
