@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import './StartPage/splash.dart';
+
+import './StartPage/intro.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,12 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Campus Dost',
       theme: ThemeData(
-        fontFamily: 'Slabo',
-        primarySwatch: Colors.blue,
+        fontFamily: 'Geometria',
+        primarySwatch: Colors.blue
       ),
-      home: new Scaffold(
-        appBar: new AppBar(title:new Text("Campus Dost")),
-      ),
+      home: SplashPage(),
+      
       debugShowCheckedModeBanner: false,
     );
   }
