@@ -7,32 +7,6 @@ class MorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    _launchURL_DSCWebPage( ) async {
-      const url = 'https://dsckiet.tech/';
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw 'Could not launch $url';
-      }
-    }
-    _launchURL_DSCgithub() async {
-      const url = 'https://github.com/dsckiet';
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw 'Could not launch $url';
-      }
-    }
-
-    _launchURL_DSCinstagram() async {
-      const url = 'https://www.instagram.com/dsckiet/';
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw 'Could not launch $url';
-      }
-    }
-
     void _showDialog() {
       showDialog(
         context: context,
@@ -52,6 +26,34 @@ class MorePage extends StatelessWidget {
         },
       );
     }
+
+    _launchURLdscWebPage( ) async {
+      const url = 'https://dsckiet.tech/';
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        _showDialog();
+      }
+    }
+    _launchURLdscGithub() async {
+      const url = 'https://github.com/dsckiet';
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        _showDialog();
+      }
+    }
+
+    _launchURLdscInstagram() async {
+      const url = 'https://www.instagram.com/dsckiet/';
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        _showDialog();
+      }
+    }
+
+
     return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
@@ -128,7 +130,7 @@ class MorePage extends StatelessWidget {
                       flex: 1,
                       child: Padding(
                         padding: EdgeInsets.all(20.0),
-                        child: GestureDetector(onTap: _launchURL_DSCWebPage,
+                        child: GestureDetector(onTap: _launchURLdscWebPage,
                         child: Image.asset(
                           'assets/link_image.png',
                           fit: BoxFit.cover,
@@ -138,7 +140,7 @@ class MorePage extends StatelessWidget {
                       flex: 1,
                       child: Padding(
                         padding: EdgeInsets.all(20.0),
-                        child: GestureDetector(onTap: _launchURL_DSCgithub,
+                        child: GestureDetector(onTap: _launchURLdscGithub,
                         child: Image.asset(
                           'assets/github_image.png',
                           fit: BoxFit.cover,
@@ -148,7 +150,7 @@ class MorePage extends StatelessWidget {
                     flex: 1,
                     child: Padding(
                         padding: EdgeInsets.all(20.0),
-                        child: GestureDetector(onTap: _launchURL_DSCinstagram,
+                        child: GestureDetector(onTap: _launchURLdscInstagram,
                         child: Image.asset(
                           'assets/instagram_image.png',
                           fit: BoxFit.cover,
