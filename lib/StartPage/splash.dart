@@ -31,7 +31,7 @@ Animation<double> _iconAnimation;
     Future.delayed(Duration(seconds: 3),
     () {
 
-      Navigator.push(context, 
+      Navigator.pushReplacement(context, 
       MaterialPageRoute(
         builder: (context) => IntroPage()
       ),

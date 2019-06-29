@@ -100,7 +100,7 @@ class ContactItem extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(10.0)),
             
             child: Padding(
-              padding: const EdgeInsets.only(top: 28.0, bottom: 28.0, left: 40.0),
+              padding: const EdgeInsets.only(top: 28.0, bottom: 28.0, left: 28.0),
               child: new Text(
                 text,
                 style: TextStyle(

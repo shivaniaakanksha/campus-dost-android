@@ -16,11 +16,11 @@ class ContactCardState extends State<ContactCard> {
         width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
             child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.only(left:8.0,right: 8.0),
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 40.0, bottom: 20.0),
+                padding: const EdgeInsets.only(top: 40.0),
                 child: new Text(
                   "Contact List",
                   style: TextStyle(
@@ -33,21 +33,22 @@ class ContactCardState extends State<ContactCard> {
                   ),
                 ),
               ),
-              Padding(padding: EdgeInsets.all(5.0)),
+              
+              Padding(padding: EdgeInsets.all(8.0)),
               Container(
-                  width: MediaQuery.of(context).size.width * 0.95,
+                  width: double.infinity,
                   child: Card(
                       elevation: 8.0,
-                      margin: EdgeInsets.only(bottom: 15.0),
+                      margin: EdgeInsets.all(8.0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Padding(
-                          padding: EdgeInsets.all(5.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
                                     "Dr. Shivam Mahajan",
@@ -55,9 +56,9 @@ class ContactCardState extends State<ContactCard> {
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 0.5,
                                       fontFamily: "Gilroy",
-                                      fontSize: 20.0,
+                                      fontSize: 18.0,
                                       wordSpacing: 1,
-                                      height: 1.2,
+                                      height: 1.3,
                                       color: Colors.black,
                                     ),
                                   ),
@@ -68,19 +69,20 @@ class ContactCardState extends State<ContactCard> {
                                       fontWeight: FontWeight.normal,
                                       letterSpacing: 0.5,
                                       fontFamily: "Gilroy",
-                                      fontSize: 20.0,
+                                      fontSize: 16.0,
                                       wordSpacing: 1,
                                       height: 1.2,
-                                      color: Colors.grey,
+                                      color: Colors.black54,
                                     ),
                                   ),
                                 ],
                               ),
-                              Container(padding: EdgeInsets.all(2.0),
+                              Container(padding: EdgeInsets.only(left: 44.0),
                                 child: Image.asset(
+                                  
                                   'assets/default_user.png',
-                                  scale: 2.0,
-                                  fit: BoxFit.fill,
+                                  scale: 2.2,
+                                  fit: BoxFit.cover,
                                 ),
                               )
                             ],
