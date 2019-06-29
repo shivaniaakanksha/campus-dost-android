@@ -75,7 +75,11 @@ class ContactItem extends StatelessWidget {
     return InkWell(
       onTap: (){
         if(text[0] == ("D")){
-          print("d");
+          //  Navigator.push(context, 
+      // MaterialPageRoute(
+        // builder: (context) => ()
+      // ),
+      // );
         }else if(text[0] == "H"){
           print("h");
         }else if(text[0] == "I"){
