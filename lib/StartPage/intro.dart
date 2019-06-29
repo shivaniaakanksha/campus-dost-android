@@ -74,7 +74,7 @@ class _IntroPageState extends State<IntroPage> {
                       ),
                       color: Color(0xff4285f4),
                       onPressed: () {
-                        Navigator.push(context, 
+                        Navigator.pushReplacement(context,
       MaterialPageRoute(
         builder: (context) => HomePage()
       ),
