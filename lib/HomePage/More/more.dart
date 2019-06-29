@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
+
 
 class MorePage extends StatefulWidget {
   @override
@@ -6,6 +8,39 @@ class MorePage extends StatefulWidget {
 }
 
 class _MorePageState extends State<MorePage> {
+
+  void _launchURL(BuildContext context ,String value) async {
+    final url=value;
+    try {
+      await launch(
+        url,
+        option: CustomTabsOption(
+          toolbarColor: Theme.of(context).primaryColor,
+          enableDefaultShare: true,
+          enableUrlBarHiding: true,
+          showPageTitle: true,
+          //animation: CustomTabsAnimation.slideIn()
+          // or user defined animation.
+          animation: const CustomTabsAnimation(
+          startEnter: 'slide_up',
+          startExit: 'android:anim/fade_out',
+          endEnter: 'android:anim/fade_in',
+          endExit: 'slide_down',
+        ),
+        extraCustomTabs: const <String>[
+          // ref. https://play.google.com/store/apps/details?id=org.mozilla.firefox
+          'org.mozilla.firefox',
+          // ref. https://play.google.com/store/apps/details?id=com.microsoft.emmx
+          'com.microsoft.emmx',
+        ],
+      ),
+    );
+    } catch (e) {
+    // An exception is thrown if browser app is not installed on Android device.
+    debugPrint(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,28 +131,33 @@ class _MorePageState extends State<MorePage> {
                         flex: 1,
                         child: Padding(
                           padding: EdgeInsets.all(20.0),
-                          child: Image.asset(
+                          child: GestureDetector(
+                            onTap: () => _launchURL(context ,'https://dsckiet.tech/'),
+                            child: Image.asset(
                             'assets/link_icon.png',
                             fit: BoxFit.cover,
                           ),)
+                          ,)
                         ),
                   Expanded(
                         flex: 1,
                         child: Padding(
                           padding: EdgeInsets.all(20.0),
+                          child: GestureDetector(onTap:() => _launchURL(context ,'https://github.com/dsckiet/') ,
                           child: Image.asset(
                             'assets/github_icon.png',
                             fit: BoxFit.cover,
-                          ),)
+                          ),))
                         ),
                   Expanded(
                       flex: 1,
                       child: Padding(
                           padding: EdgeInsets.all(20.0),
+                          child: GestureDetector(onTap: () => _launchURL(context ,'https://www.instagram.com/dsckiet/'),
                           child: Image.asset(
                             'assets/instagram_icon.png',
                             fit: BoxFit.cover,
-                          )),)
+                          )),),)
                   
                 ],
                       ),
