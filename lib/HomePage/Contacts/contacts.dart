@@ -1,4 +1,5 @@
 import 'package:campus_dost/HomePage/Contacts/contactDetails.dart';
+import 'package:campus_dost/HomePage/Contacts/contactsType.dart';
 import 'package:flutter/material.dart';
 
 class ContactsPage extends StatefulWidget {
@@ -38,16 +39,6 @@ class _ContactsPageState extends State<ContactsPage> {
           
         ),
 
-
-        //Container for buttons
-        // Container(
-        //   width: double.infinity,
-        //   child: new Column(
-        //     chilZZ
-        //   ),
-        // )
-
-
         // Container for ListView
         Padding(
          padding:
@@ -78,7 +69,7 @@ class ContactItem extends StatelessWidget {
         if(text[0] == ("D")){
            Navigator.push(context, 
       MaterialPageRoute(
-        builder: (context) => ContactDetails()
+        builder: (context) => ContactType()
       ),
       );
         }else if(text[0] == "H"){
