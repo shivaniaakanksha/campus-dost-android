@@ -1,3 +1,4 @@
+import 'package:campus_dost/HomePage/Contacts/contactDetails.dart';
 import 'package:flutter/material.dart';
 
 class ContactCard extends StatefulWidget {
@@ -37,6 +38,12 @@ class ContactCardState extends State<ContactCard> {
               Padding(padding: EdgeInsets.all(8.0)),
               Container(
                   width: double.infinity,
+                   child: GestureDetector(
+                    onTap:()=> Navigator.push(context, 
+      MaterialPageRoute(
+        builder: (context) => ContactDetails()
+      ),
+      ),
                   child: Card(
                       elevation: 8.0,
                       margin: EdgeInsets.all(8.0),
@@ -86,10 +93,12 @@ class ContactCardState extends State<ContactCard> {
                                 ),
                               )
                             ],
-                          )))),
+                          )))),)
             ],
+              
           ),
-        )),
+        ),
+        ),
       ),
     );
   }

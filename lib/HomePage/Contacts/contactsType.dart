@@ -1,3 +1,4 @@
+import 'package:campus_dost/HomePage/Contacts/contactsList.dart';
 import 'package:flutter/material.dart';
 
 class ContactType extends StatefulWidget {
@@ -35,29 +36,37 @@ class _ContactTypeState extends State<ContactType> {
               Padding(padding: EdgeInsets.all(8.0)),
               Container(
                   width: double.infinity,
-                  child: Card(
-                    color: Color(0xff4285f4),
-                      elevation: 8.0,
-                      margin: EdgeInsets.all(8.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                     
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 28.0,right: 28.0,top:8.0,bottom: 8.0),
-                                    child: new Text(
-                                      "Computer Science and Engineering ",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.normal,
-                                        letterSpacing: 0.5,
-                                        fontFamily: "Gilroy",
-                                        fontSize: 20.0,
-                                        wordSpacing: 1,
-                                        height: 1.5,
-                                        color: Colors.white,
+                  child: GestureDetector(
+                    onTap:()=> Navigator.push(context, 
+      MaterialPageRoute(
+        builder: (context) => ContactCard()
+      ),
+      ),
+                                                    child: Card(
+                      color: Color(0xff4285f4),
+                        elevation: 8.0,
+                        margin: EdgeInsets.all(8.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
+                       
+                                    child: Padding(
+                                      
+                                      padding: const EdgeInsets.only(left: 28.0,right: 28.0,top:8.0,bottom: 8.0),
+                                      child: new Text(
+                                        "Computer Science and Engineering ",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          letterSpacing: 0.5,
+                                          fontFamily: "Gilroy",
+                                          fontSize: 20.0,
+                                          wordSpacing: 1,
+                                          height: 1.5,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                 
+                                   
+                    ),
                   )
               )
             ]
