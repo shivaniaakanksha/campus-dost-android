@@ -35,9 +35,7 @@ class _NoticesPageState extends State<NoticesPage> {
 
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Online JSON via HTTP"),
-      ),
+      
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {

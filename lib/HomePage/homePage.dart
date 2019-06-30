@@ -52,8 +52,8 @@ class HomePageState extends State<HomePage>{
           body: TabBarView(
             children: <Widget>[
               new ContactsPage(),
-          new ContactCard(),
-          new ContactDetails(),
+          new NoticesPage(),
+          new MorePage(),
           ],
           ),
           bottomNavigationBar: customBottomNavigationBar(context),

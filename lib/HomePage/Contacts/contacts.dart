@@ -1,3 +1,4 @@
+import 'package:campus_dost/HomePage/Contacts/contactDetails.dart';
 import 'package:flutter/material.dart';
 
 class ContactsPage extends StatefulWidget {
@@ -75,11 +76,11 @@ class ContactItem extends StatelessWidget {
     return InkWell(
       onTap: (){
         if(text[0] == ("D")){
-          //  Navigator.push(context, 
-      // MaterialPageRoute(
-        // builder: (context) => ()
-      // ),
-      // );
+           Navigator.push(context, 
+      MaterialPageRoute(
+        builder: (context) => ContactDetails()
+      ),
+      );
         }else if(text[0] == "H"){
           print("h");
         }else if(text[0] == "I"){
