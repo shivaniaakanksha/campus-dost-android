@@ -1,6 +1,8 @@
-import 'package:campus_dost/HomePage/Contacts/contactDetails.dart';
-import 'package:campus_dost/HomePage/Contacts/contactsList.dart';
+//import 'package:campus_dost/HomePage/Contacts/contactDetails.dart';
+//import 'package:campus_dost/HomePage/Contacts/contactsList.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 
 import 'package:campus_dost/HomePage/Contacts/contacts.dart';
 import 'package:campus_dost/HomePage/More/more.dart';
@@ -16,50 +18,80 @@ class HomePage extends StatefulWidget{
   }
 }
 
+
 class HomePageState extends State<HomePage>{
 
-  Widget customBottomNavigationBar(BuildContext context){
-  double myHeight =50.0;//Your height HERE
-  return SizedBox(
-    height: myHeight,
-    width: MediaQuery.of(context).size.width,
-    child:TabBar(
-      tabs: [
-        Tab(
-          text: "Contacts",
-          icon: new Icon(Icons.contacts,size: 24,), ),
-        Tab( text: "Notices",
-          icon: new Icon(Icons.notification_important,size: 24,),
-         ),
-        Tab( text: "More",
-            icon:new Icon(Icons.more_horiz,size: 24,) ),
-      ],
-      labelStyle: TextStyle(fontSize: 10.0,),
-      labelColor: Colors.white,
-      unselectedLabelColor: Colors.white30,
-      indicatorSize: TabBarIndicatorSize.label,
-      indicatorColor: Colors.white,
-    ),
-  );
-}
   @override
   Widget build(BuildContext context) {
 
+    return ChangeNotifierProvider<BottomNavigationBarProvider>(
+    child: BottomNavigationBarExample(),
+    builder: (BuildContext context) => BottomNavigationBarProvider(),
+    );
+  }
+}
+
+
+
+class BottomNavigationBarExample extends StatefulWidget {
+  @override
+  _BottomNavigationBarExampleState createState() =>
+      _BottomNavigationBarExampleState();
+}
+
+
+class _BottomNavigationBarExampleState extends State<BottomNavigationBarExample> {
+  var currentTab = [
+    ContactsPage(),
+    NoticesPage(),
+    MorePage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    var provider = Provider.of<BottomNavigationBarProvider>(context);
     return Scaffold(
-      body: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          body: TabBarView(
-            children: <Widget>[
-              new ContactsPage(),
-          new NoticesPage(),
-          new MorePage(),
-          ],
+      body: currentTab[provider.currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: provider.currentIndex,
+        onTap: (index) {
+          provider.currentIndex = index;
+        },
+        items: [
+          BottomNavigationBarItem(
+        icon: new Icon(Icons.contacts,size: 24,),
+        title: new Text('Contacts'),
           ),
-          bottomNavigationBar: customBottomNavigationBar(context),
-          backgroundColor: Color(0xff4285f4),
-        ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.notification_important,size: 24,),
+            title: new Text('Notices'),
+          ),
+          BottomNavigationBarItem(
+            icon:new Icon(Icons.more_horiz,size: 24,),
+            title: Text('More'),
+          )
+        ],
+        selectedItemColor: Colors.white,
+        backgroundColor: Color(0xff4285f4),
+        unselectedItemColor: Colors.white30,
+        selectedFontSize: 12.0,
+        unselectedFontSize: 10.0,
       ),
     );
   }
 }
+
+
+class BottomNavigationBarProvider with ChangeNotifier {
+  int _currentIndex = 1;
+
+  get currentIndex => _currentIndex;
+
+  set currentIndex(int index) {
+    _currentIndex = index;
+    notifyListeners();
+  }
+}
+
+
+
